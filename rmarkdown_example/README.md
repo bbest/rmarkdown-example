@@ -116,7 +116,7 @@ _Aside_. It is possible to sync your entire Zotero library using [AutoZotBib](ht
 
 _Note_. Besides the \*.Rmd and \*.md files, the outputs are binary in format and therefore just bloat the repository without adding novel information. Simply add entries like `*.pdf` and `*.docx` and `*.html` to [.gitignore](./.gitignore) to prevent these files from being tracked and uploaded to the github repository.
 
-_More_. For a deeper example with customization with figure/ table numbering, check out [bbest/dissertation](http://github.com/bbest/dissertation).
+_More_. For a deeper example of customization with figure/ table numbering, check out [bbest/dissertation](http://github.com/bbest/dissertation).
 
 ## Bibliography
 

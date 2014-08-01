@@ -114,7 +114,7 @@ After installing RStudio and Zotero, here are the steps for adding citations and
   
 _Aside_. It is possible to sync your entire Zotero library using [AutoZotBib](http://www.rtwilson.com/academic/autozotbib), but my library is too large to practically use this.
 
-_Note_. Besides the *.Rmd and *.md files, the outputs are binary in format and therefore just bloat the repository without adding novel information. Simply add entries like `*.pdf` and `*.docx` and `*.html` to [.gitignore](./.gitignore) to prevent these files from being tracked and uploaded to the github repository.
+_Note_. Besides the \*.Rmd and \*.md files, the outputs are binary in format and therefore just bloat the repository without adding novel information. Simply add entries like `*.pdf` and `*.docx` and `*.html` to [.gitignore](./.gitignore) to prevent these files from being tracked and uploaded to the github repository.
 
 _More_. For a deeper example with customization with figure/ table numbering, check out [bbest/dissertation](http://github.com/bbest/dissertation).
 

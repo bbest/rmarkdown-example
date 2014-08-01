@@ -10,9 +10,25 @@ bibliography: test.bib
 csl: apa.csl
 ---
 
-## Introduction
+## Introduction {-}
 
 The Ocean Health Index [@halpern_index_2012; @selig_assessing_2013] derives most of its pressures from Halpern et al. [-@halpern_global_2008].
+
+## Food Provision: Fisheries
+
+Amount of sustainable wild-caught seafood compared to the max sustainable
+
+$$
+x_{FIS} =  (\prod_{g=1}^{6} SS_{i,g}^{C_{i,g}})^\frac{1}{\sum{C_{i,g}}}
+$$
+
+Variables:
+
+- $SS$: stock status score, based on B/Bmsy and an underharvest penalty adjustment
+- $C$: total catch
+- $i$: OHI reporting region
+- $g$: level of taxonomic grouping (ISSCAAP)</small>
+
 
 ## Default Rmarkdown
 

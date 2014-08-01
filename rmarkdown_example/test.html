@@ -60,15 +60,30 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction"><span class="toc-section-number">0.1</span> Introduction</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#food-provision-fisheries"><span class="toc-section-number">0.1</span> Food Provision: Fisheries</a></li>
 <li><a href="#default-rmarkdown"><span class="toc-section-number">0.2</span> Default Rmarkdown</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
 
-<div id="introduction" class="section level2">
-<h2><span class="header-section-number">0.1</span> Introduction</h2>
+<div id="introduction" class="section level2 unnumbered">
+<h2>Introduction</h2>
 <p>The Ocean Health Index <span class="citation">(Halpern et al., 2012; Selig et al., 2013)</span> derives most of its pressures from Halpern et al. <span class="citation">(2008)</span>.</p>
+</div>
+<div id="food-provision-fisheries" class="section level2">
+<h2><span class="header-section-number">0.1</span> Food Provision: Fisheries</h2>
+<p>Amount of sustainable wild-caught seafood compared to the max sustainable</p>
+<p><span class="math">\[
+x_{FIS} =  (\prod_{g=1}^{6} SS_{i,g}^{C_{i,g}})^\frac{1}{\sum{C_{i,g}}}
+\]</span></p>
+<p>Variables:</p>
+<ul>
+<li><span class="math">\(SS\)</span>: stock status score, based on B/Bmsy and an underharvest penalty adjustment</li>
+<li><span class="math">\(C\)</span>: total catch</li>
+<li><span class="math">\(i\)</span>: OHI reporting region</li>
+<li><span class="math">\(g\)</span>: level of taxonomic grouping (ISSCAAP)</small></li>
+</ul>
 </div>
 <div id="default-rmarkdown" class="section level2">
 <h2><span class="header-section-number">0.2</span> Default Rmarkdown</h2>

@@ -4,15 +4,15 @@ We can create versioned (ie in Github), live (ie output directly from data with 
 
 ## Example
 
-Here's an example of using a single Rmarkdown file [test.**Rmd**](https://github.com/cmap-ucsb/issues/blob/master/rmarkdown_example/test.Rmd) and rendering it in the following formats:
+Here's an example of using a single Rmarkdown file [test.**Rmd**](./test.Rmd) and rendering it in the following formats:
 
-- [test.**pdf**](https://github.com/cmap-ucsb/issues/blob/master/rmarkdown_example/test.pdf?raw=true). Portable document format for pretty professional output.
+- [test.**pdf**](./test.pdf?raw=true). Portable document format for pretty professional output.
 
-- [test.**docx**](https://github.com/cmap-ucsb/issues/blob/master/rmarkdown_example/test.docx?raw=true). Microsoft Word doc for sharing with collaborators who can use Track Changes for providing feedback.
+- [test.**docx**](./test.docx?raw=true). Microsoft Word doc for sharing with collaborators who can use Track Changes for providing feedback.
 
-- [test.**html**](https://github.com/cmap-ucsb/issues/blob/master/rmarkdown_example/test.html?raw=true). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
+- [test.**html**](./test.html?raw=true). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
 
-- [test.**md**](https://github.com/cmap-ucsb/issues/blob/master/rmarkdown_example/test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/cmap-ucsb/issues/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/cmap-ucsb/issues/blame/master/rmarkdown_example/test.md)).
+- [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/cmap-ucsb/issues/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/cmap-ucsb/issues/blame/master/rmarkdown_example/test.md)).
 
 You can variously render different formats in RStudio and set options in the metadata header.
 

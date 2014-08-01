@@ -3,12 +3,11 @@ title: "Trying Rmarkdown"
 author: "Ben Best"
 date: "August 1, 2014"
 output:
-  html_document:
+  pdf_document:
     fig_caption: yes
-    keep_md: yes
     number_sections: yes
     toc: yes
-  pdf_document:
+  html_document:
     fig_caption: yes
     number_sections: yes
     toc: yes
@@ -55,6 +54,20 @@ plot(cars)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Render Markdown
+
+To get github friendly Markdown document for cleanly tracking changes to document in Github, use this command in the console (not within the document).
+
+```{r, eval=FALSE}
+library(rmarkdown)
+render(
+  'test.Rmd', 
+  md_document(
+    'markdown_github', 
+    preserve_yaml=F, 
+    toc=T))
+```
 
 ## References {-}
 <!-- placeholder for References in toc --!>

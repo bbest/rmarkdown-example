@@ -112,7 +112,7 @@ After installing RStudio and Zotero, here are the steps for adding citations and
       
 1. **Repeat**. Repeat as you write.
   
-_Aside_. It is possible to your entire Zotero library using [AutoZotBib](http://www.rtwilson.com/academic/autozotbib), but my library is too large to practically use this.
+_Aside_. It is possible to sync your entire Zotero library using [AutoZotBib](http://www.rtwilson.com/academic/autozotbib), but my library is too large to practically use this.
 
 _Note_. Besides the *.Rmd and *.md files, the outputs are binary in format and therefore just bloat the repository without adding novel information. Simply add entries like `*.pdf` and `*.docx` and `*.html` to [.gitignore](./.gitignore) to prevent these files from being tracked and uploaded to the github repository.
 

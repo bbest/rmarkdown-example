@@ -1,9 +1,3 @@
--   Introduction
--   Food Provision: Fisheries
--   Default Rmarkdown
--   Render Markdown
--   References
-
 Introduction
 ------------
 
@@ -50,20 +44,16 @@ You can also embed plots, for example:
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-Render Markdown
+Github Markdown
 ---------------
 
-To get github friendly Markdown document for cleanly tracking changes to document in Github, use this command in the console (not within the document).
+To get github friendly Markdown document for cleanly tracking changes to document in Github, put the following output first:
 
-``` {.r}
-library(rmarkdown)
-render(
-  'test.Rmd', 
-  md_document(
-    'markdown_github', 
-    preserve_yaml=F, 
-    toc=T))
-```
+    output:
+      md_document:
+        variant: "markdown_github"
+
+NOTE: You need to run this **LAST** though, since knitting other formats wipes out the `test_files` directory. To return to the Knit button having other options (HTML, PDF, Word), move this output type below the first option.
 
 References
 ----------

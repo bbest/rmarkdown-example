@@ -63,7 +63,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#food-provision-fisheries"><span class="toc-section-number">0.1</span> Food Provision: Fisheries</a></li>
 <li><a href="#default-rmarkdown"><span class="toc-section-number">0.2</span> Default Rmarkdown</a></li>
-<li><a href="#render-markdown"><span class="toc-section-number">0.3</span> Render Markdown</a></li>
+<li><a href="#github-markdown"><span class="toc-section-number">0.3</span> Github Markdown</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -104,16 +104,13 @@ x_{FIS} =  (\prod_{g=1}^{6} SS_{i,g}^{C_{i,g}})^\frac{1}{\sum{C_{i,g}}}
 </div>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
-<div id="render-markdown" class="section level2">
-<h2><span class="header-section-number">0.3</span> Render Markdown</h2>
-<p>To get github friendly Markdown document for cleanly tracking changes to document in Github, use this command in the console (not within the document).</p>
-<pre class="r"><code>library(rmarkdown)
-render(
-  'test.Rmd', 
-  md_document(
-    'markdown_github', 
-    preserve_yaml=F, 
-    toc=T))</code></pre>
+<div id="github-markdown" class="section level2">
+<h2><span class="header-section-number">0.3</span> Github Markdown</h2>
+<p>To get github friendly Markdown document for cleanly tracking changes to document in Github, put the following output first:</p>
+<pre><code>output:
+  md_document:
+    variant: &quot;markdown_github&quot;</code></pre>
+<p>NOTE: You need to run this <strong>LAST</strong> though, since knitting other formats wipes out the <code>test_files</code> directory. To return to the Knit button having other options (HTML, PDF, Word), move this output type below the first option.</p>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>

@@ -122,7 +122,7 @@ After installing RStudio and Zotero, here are the steps for adding citations and
   
 1. **Export references**. Right-click on Zotero collection > Export Collection and choose `Better BibTex` and export to a file in the same folder as the *.Rmd (eg `test.bib`).
 
-1. **Render**. You can render the document as you write with the 'Knit' button (or Ctrl+Shift+Y of [RStudio shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)). You can specify one ore more formats in the metadata `output:` option to one of: `pdf_document`, `html_document`, `word_document`, `md_document`, `ioslides_presentation` and more. Or you can use `rmarkdown::render` at the console to specify format like so:
+1. **Render**. You can render the document as you write with the 'Knit' button (or Ctrl+Shift+Y of [RStudio shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)). You can specify one ore more formats in the metadata `output:` option to one of: `pdf_document`, `html_document`, `word_document`, `md_document`, `ioslides_presentation` and more. The top format will render by default. Or you can use `rmarkdown::render` at the console to specify format like so:
 
   ```r
   render("test.Rmd", "pdf_document")`

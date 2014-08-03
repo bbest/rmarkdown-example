@@ -143,6 +143,6 @@ _More_. For a deeper example of customization with figure/ table numbering, chec
 
 We can use this or another Zotero group library to sync references:
 
-  [zotero.org/groups/ohi](https://www.zotero.org/groups/ohi)
+  [zotero.org/groups/ohi](https://www.zotero.org/groups/ohi/items)
 
 You just need to send bbest your Zotero username after you [register](https://www.zotero.org/user/register/). Membership is private, and currently viewing is public. This shows up in the Zotero app separately from your private library under "Group Libraries".

@@ -1,7 +1,7 @@
 Introduction
 ------------
 
-The Ocean Health Index (Halpern et al., 2012; Selig et al., 2013) derives most of its pressures from Halpern et al. (2008).
+The Ocean Health Index (Halpern et al., 2012; Selig et al., 2013) derives most of its pressures from Halpern et al. (2008)...
 
 Food Provision: Fisheries
 -------------------------
@@ -19,28 +19,27 @@ Variables:
 -   \(i\): OHI reporting region
 -   \(g\): level of taxonomic grouping (ISSCAAP)</small>
 
-Default Rmarkdown
------------------
+Results
+-------
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Hats off to the top scoring region of **Heard and McDonald Islands** with a score of 90.29! Here are the top 10 scoring regions of 221 globally:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+|Region|Score|
+|:-----|----:|
+|Heard and McDonald Islands|90.29|
+|Ile Europa|89.48|
+|Bassas da India|88.17|
+|Howland Island and Baker Island|85.89|
+|Juan de Nova Island|83.84|
+|Glorioso Islands|83.79|
+|Kerguelen Islands|82.84|
+|Northern Saint-Martin|82.58|
+|Nauru|82.18|
+|Seychelles|81.93|
 
-``` {.r}
-summary(cars)
-```
+Please see Figure 1 to see how the breakdown of goal values for the global average.
 
-    ##      speed           dist    
-    ##  Min.   : 4.0   Min.   :  2  
-    ##  1st Qu.:12.0   1st Qu.: 26  
-    ##  Median :15.0   Median : 36  
-    ##  Mean   :15.4   Mean   : 43  
-    ##  3rd Qu.:19.0   3rd Qu.: 56  
-    ##  Max.   :25.0   Max.   :120
-
-You can also embed plots, for example:
-
-![Scatterplot of cars.](./test_files/figure-markdown_github/unnamed-chunk-2.png)
+![Global average across Oceean Health Index goals.](./test_files/figure-markdown_github/flower_plot.png)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 

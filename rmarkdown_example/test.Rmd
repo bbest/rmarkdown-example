@@ -5,6 +5,8 @@ date: "August 1, 2014"
 output:
   md_document:
     variant: markdown_github
+  word_document:
+    fig_caption: yes
   pdf_document:
     fig_caption: yes
     number_sections: yes
@@ -13,15 +15,83 @@ output:
     fig_caption: yes
     number_sections: yes
     toc: yes
-  word_document:
-    fig_caption: yes
 csl: apa.csl
 bibliography: test.bib
 ---
 
+```{r setup, echo=FALSE, include=TRUE}
+suppressPackageStartupMessages({
+  require(dplyr)
+  require(knitr)
+  require(RColorBrewer)
+  suppressWarnings(require(ohicore)) # devtools::install_github('ohi-science/ohicore')
+})
+
+refresh_data = F
+
+# get data
+csv_d = 'data/scores.csv'
+if (!file.exists(csv_d) | refresh_data){
+  dir.create('data', showWarnings=F)
+  
+  # get scores
+  url_scores = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/master/eez2014/scores.csv'
+  tmp_scores = tempfile(fileext='.csv')
+  download.file(url_scores, tmp_scores, method='curl')
+  scores = read.csv(tmp_scores)
+  
+  # get labels
+  url_labels = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/master/eez2014/layers/rgn_labels.csv'
+  tmp_labels = tempfile(fileext='.csv')
+  download.file(url_labels, tmp_labels, method='curl')
+  labels = read.csv(tmp_labels)
+  
+  # explore
+  # head(scores)
+  # head(labels)
+  # select(scores, goal, dimension) %>% table()
+  
+  # merge
+  d = scores %>%
+    inner_join(
+      labels %>%
+        select(
+          region_id    = rgn_id, 
+          region_label = label) %>%
+        rbind(data.frame(
+          region_id    = 0, 
+          region_label = 'GLOBAL')),
+      by='region_id') %>%
+    filter(dimension=='score')
+  
+  # write and cleanup
+  write.csv(d, csv_d, row.names=F, na='')
+  unlink(c(tmp_scores, tmp_labels))
+}
+d = read.csv(csv_d) %>%
+    arrange(desc(score))
+
+# get goals
+csv_g = 'data/goals.csv'
+if (!file.exists(csv_g) | refresh_data){
+  url_goals = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/master/eez2014/conf/goals.csv'
+  tmp_goals = tempfile(fileext='.csv')
+  download.file(url_goals, tmp_goals, method='curl')
+  g = read.csv(tmp_goals)
+  g = g %>%
+    filter(!goal %in% g$parent) %>%
+    select(goal, weight, order_color, name_flower)
+  write.csv(g, csv_g, row.names=F, na='')
+  unlink(c(tmp_goals))
+}
+g = read.csv(csv_g) %>%
+  arrange(order_color)
+```
+
+
 ## Introduction {-}
 
-The Ocean Health Index [@halpern_index_2012; @selig_assessing_2013] derives most of its pressures from Halpern et al. [-@halpern_global_2008].
+The Ocean Health Index [@halpern_index_2012; @selig_assessing_2013] derives most of its pressures from Halpern et al. [-@halpern_global_2008]...
 
 ## Food Provision: Fisheries
 
@@ -39,20 +109,42 @@ Variables:
 - $g$: level of taxonomic grouping (ISSCAAP)</small>
 
 
-## Default Rmarkdown
+## Results
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** with a score of `r filter(d, goal=='Index') %>% head(1) %>% select(score)`! Here are the top 10 scoring regions of `r n_distinct(d$region_label) - 1 # remove GLOBAL` globally:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r}
-summary(cars)
+```{r top10, echo=FALSE, results='asis'}
+kable(
+  d %>%
+    filter(region_label != 'GLOBAL' & goal=='Index') %>%
+    head(10) %>%
+    select(
+      Region = region_label,
+      Score  = score))
 ```
 
-You can also embed plots, for example:
+Please see Figure 1 to see how the breakdown of goal values for the global average. 
 
-```{r, echo=FALSE, fig.cap='Scatterplot of cars.'}
-plot(cars)
+```{r flower_plot, echo=FALSE, fig.cap='Global average across Oceean Health Index goals.', fig.width=5, fig.height=5}
+# combine goals with scores
+x = g %>%
+  inner_join(
+    d %>%
+      filter(region_label=='GLOBAL' & goal!='Index') %>%
+      select(goal, score),
+    by='goal') %>%
+  arrange(order_color)
+  
+# plot
+PlotFlower(
+  main       = '',
+  lengths    = x$score,
+  widths     = x$weight,
+  fill.col   = colorRampPalette(brewer.pal(10, 'Spectral'), space='Lab')(nrow(x)),
+  labels     = paste(gsub('\\\\n','\\\n', x$name_flower), round(x$score), sep='\n'),
+  center     = round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score)),
+  disk       = 0.4, 
+  max.length = 100, cex=2, label.cex=0.5, label.offset=0.13)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

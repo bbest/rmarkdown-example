@@ -22,7 +22,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
 
 1. [Initial](https://github.com/cmap-ucsb/issues/commit/7d416b2adba1d49746d8e61b1f3cd53e89548784#diff-2). In RStudio, File > New File > R Markdown ...
 
-1. [Add toc & bibliography](https://github.com/cmap-ucsb/issues/commit/572559a1443cc285bba7b44f6d2a4b96e871069e#diff-1)
+1. [Add table of contents & bibliography](https://github.com/cmap-ucsb/issues/commit/572559a1443cc285bba7b44f6d2a4b96e871069e#diff-1)
 
   ```
  output:
@@ -65,6 +65,26 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
     md_document:
       variant: markdown_github
   ```
+
+1. [Add OHI figure, pretty table and inline values](https://github.com/cmap-ucsb/issues/commit/c5a58be104b4f337cca62a06a14c9f25766c5620#diff-2)
+
+  ```
+  Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** 
+  with a score of `r filter(d, goal=='Index') %>% head(1) %>% select(score)`! Here are the top 10 scoring 
+  regions of `r n_distinct(d$region_label) - 1 # remove GLOBAL` globally:
+  ```
+  
+  ```
+  {r top10, echo=FALSE, results='asis'}
+  kable(
+    d %>%
+      filter(region_label != 'GLOBAL' & goal=='Index') %>%
+      head(10) %>%
+      select(
+        Region = region_label,
+        Score  = score))
+  ```
+
 
 ## Software
 

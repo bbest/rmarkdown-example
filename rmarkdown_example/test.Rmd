@@ -111,7 +111,7 @@ Variables:
 
 ## Results
 
-Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** with a score of `r filter(d, goal=='Index') %>% head(1) %>% select(score)`! Here are the top 10 scoring regions of `r n_distinct(d$region_label) - 1 # remove GLOBAL` globally:
+Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** with a score of `r filter(d, goal=='Index') %>% head(1) %>% select(score)`! The top 10 scoring regions (of `r n_distinct(d$region_label) - 1 # remove GLOBAL` globally) are largely comprised of unpopulated islands (see Table 1).
 
 ```{r top10, echo=FALSE, results='asis'}
 kable(
@@ -120,10 +120,11 @@ kable(
     head(10) %>%
     select(
       Region = region_label,
-      Score  = score))
+      Score  = score), 
+  format='pandoc', caption='Top 10 scoring regions.')
 ```
 
-Please see Figure 1 to see how the breakdown of goal values for the global average. 
+The global average of `r round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score))` consists of food provision scores being lowest (Mariculture = `r round(d %>% filter(region_label=='GLOBAL' & goal=='MAR') %>% select(score))`; Fisheries = `r round(d %>% filter(region_label=='GLOBAL' & goal=='FIS') %>% select(score))`), but Artisanal Fishing Opportunities highest (`r round(d %>% filter(region_label=='GLOBAL' & goal=='AO') %>% select(score))`) (see Figure 1). 
 
 ```{r flower_plot, echo=FALSE, fig.cap='Global average across Oceean Health Index goals.', fig.width=5, fig.height=5}
 # combine goals with scores

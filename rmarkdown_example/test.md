@@ -22,7 +22,7 @@ Variables:
 Results
 -------
 
-Hats off to the top scoring region of **Heard and McDonald Islands** with a score of 90.29! Here are the top 10 scoring regions of 221 globally:
+Hats off to the top scoring region of **Heard and McDonald Islands** with a score of 90.29! The top 10 scoring regions (of 221 globally) are largely comprised of unpopulated islands (see Table 1).
 
 |Region|Score|
 |:-----|----:|
@@ -37,7 +37,7 @@ Hats off to the top scoring region of **Heard and McDonald Islands** with a scor
 |Nauru|82.18|
 |Seychelles|81.93|
 
-Please see Figure 1 to see how the breakdown of goal values for the global average.
+The global average of 68 consists of food provision scores being lowest (Mariculture = 26; Fisheries = 40), but Artisanal Fishing Opportunities highest (98) (see Figure 1).
 
 ![Global average across Oceean Health Index goals.](./test_files/figure-markdown_github/flower_plot.png)
 

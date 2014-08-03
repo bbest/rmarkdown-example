@@ -66,7 +66,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
       variant: markdown_github
   ```
 
-1. [Add OHI figure, pretty table and inline values](https://github.com/cmap-ucsb/issues/commit/c5a58be104b4f337cca62a06a14c9f25766c5620#diff-2)
+1. [Add OHI figure, pretty table and inline values](https://github.com/cmap-ucsb/issues/compare/c3e428e...02897c2#diff-4)
 
   ```
   Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** 
@@ -82,7 +82,8 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
       head(10) %>%
       select(
         Region = region_label,
-        Score  = score))
+        Score  = score),
+    format='pandoc', caption='Top 10 scoring regions.')
   ```
 
 

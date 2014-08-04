@@ -12,13 +12,13 @@ Here's an example of using a single Rmarkdown file [test.**Rmd**](./test.Rmd) an
 
 - [test.**html**](./test.html?raw=true). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
 
-- [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/bbest/rmarkdown-example/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/bbest/rmarkdown-example/blame/master/rmarkdown_example/test.md)). Equations maintain their latex format, so not prettily rendered like other formats.
+- [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/bbest/rmarkdown-example/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/bbest/rmarkdown-example/blame/master/test.md)). Equations maintain their latex format, so not prettily rendered like other formats.
 
 You can variously render different formats in RStudio and set options in the metadata header.
 
-  ![rstudio_knit-button](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/rstudio_knit-button.png)
+  ![rstudio_knit-button](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/screenshots/rstudio_knit-button.png)
 
-Check out [test.Rmd differences](https://github.com/bbest/rmarkdown-example/commits/master/rmarkdown_example/test.Rmd) between commits as it gets built up:
+Check out [test.Rmd differences](https://github.com/bbest/rmarkdown-example/commits/master/test.Rmd) between commits as it gets built up:
 
 1. [Initial](https://github.com/bbest/rmarkdown-example/commit/7d416b2adba1d49746d8e61b1f3cd53e89548784#diff-2). In RStudio, File > New File > R Markdown ...
 
@@ -113,11 +113,11 @@ After installing RStudio and Zotero, here are the steps for adding citations and
 
 1. **New Rmd**. In RStudio, File > New File > R Markdown... and choose type and format, eg document, HTML document. This will generate a sample *.Rmd file with metadata header specifying default output format (eg `output: html_document`).
 
-  ![rstudio_new-rmarkdown](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/rstudio_new-rmarkdown.png)
+  ![rstudio_new-rmarkdown](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/screenshots/rstudio_new-rmarkdown.png)
 
 1. **Gather references**. In Zotero, place all references used for the paper into its own dedicated collection (eg "test").
 
-  ![zotero_test-collection](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/zotero_test-collection.png)
+  ![zotero_test-collection](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/screenshots/zotero_test-collection.png)
     
 1. **Add references**. Drag and drop references from this collection into the document editor (I like RStudio or [Sublime](http://www.sublimetext.com)). This will add a text citation, eg `@halpern_index_2012`.
   

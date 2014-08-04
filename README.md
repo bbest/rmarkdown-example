@@ -12,17 +12,17 @@ Here's an example of using a single Rmarkdown file [test.**Rmd**](./test.Rmd) an
 
 - [test.**html**](./test.html?raw=true). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
 
-- [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/cmap-ucsb/issues/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/cmap-ucsb/issues/blame/master/rmarkdown_example/test.md)). Equations maintain their latex format, so not prettily rendered like other formats.
+- [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/bbest/rmarkdown-example/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/bbest/rmarkdown-example/blame/master/rmarkdown_example/test.md)). Equations maintain their latex format, so not prettily rendered like other formats.
 
 You can variously render different formats in RStudio and set options in the metadata header.
 
-  ![rstudio_knit-button](https://raw.githubusercontent.com/cmap-ucsb/issues/master/rmarkdown_example/screenshots/rstudio_knit-button.png)
+  ![rstudio_knit-button](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/rstudio_knit-button.png)
 
-Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/master/rmarkdown_example/test.Rmd) between commits as it gets built up:
+Check out [test.Rmd differences](https://github.com/bbest/rmarkdown-example/commits/master/rmarkdown_example/test.Rmd) between commits as it gets built up:
 
-1. [Initial](https://github.com/cmap-ucsb/issues/commit/7d416b2adba1d49746d8e61b1f3cd53e89548784#diff-2). In RStudio, File > New File > R Markdown ...
+1. [Initial](https://github.com/bbest/rmarkdown-example/commit/7d416b2adba1d49746d8e61b1f3cd53e89548784#diff-2). In RStudio, File > New File > R Markdown ...
 
-1. [Add table of contents & bibliography](https://github.com/cmap-ucsb/issues/commit/572559a1443cc285bba7b44f6d2a4b96e871069e#diff-1)
+1. [Add table of contents & bibliography](https://github.com/bbest/rmarkdown-example/commit/572559a1443cc285bba7b44f6d2a4b96e871069e#diff-1)
 
   ```
  output:
@@ -38,7 +38,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
 
   The Ocean Health Index [@halpern_index_2012; @selig_assessing_2013] derives most of its pressures from Halpern et al. [-@halpern_global_2008].
 
-1. [Add equation](https://github.com/cmap-ucsb/issues/commit/4c33f8ad0d5056714c6e72c433523c57e0f3fb4f#diff-0)
+1. [Add equation](https://github.com/bbest/rmarkdown-example/commit/4c33f8ad0d5056714c6e72c433523c57e0f3fb4f#diff-0)
 
   ```
   $$
@@ -46,7 +46,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
   $$ 
   ```
 
-1. [Add format options for pdf and docx](https://github.com/cmap-ucsb/issues/commit/437e9f1436faaaa431b4f736cd2df21731125b5f#diff-0)
+1. [Add format options for pdf and docx](https://github.com/bbest/rmarkdown-example/commit/437e9f1436faaaa431b4f736cd2df21731125b5f#diff-0)
 
   ```
   output:
@@ -58,7 +58,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
       fig_caption: yes
   ```
 
-1. [Add github markdown](https://github.com/cmap-ucsb/issues/commit/c3e428e781f8b505feedc0d97b33080ed59067f6#diff-0)
+1. [Add github markdown](https://github.com/bbest/rmarkdown-example/commit/c3e428e781f8b505feedc0d97b33080ed59067f6#diff-0)
 
   ```
   output:
@@ -66,7 +66,7 @@ Check out [test.Rmd differences](https://github.com/cmap-ucsb/issues/commits/mas
       variant: markdown_github
   ```
 
-1. [Add OHI figure, pretty table and inline values](https://github.com/cmap-ucsb/issues/compare/c3e428e...02897c2#diff-4)
+1. [Add OHI figure, pretty table and inline values](https://github.com/bbest/rmarkdown-example/compare/c3e428e...02897c2#diff-4)
 
   ```
   Hats off to the top scoring region of **`r filter(d, goal=='Index') %>% head(1) %>% select(region_label)`** 
@@ -113,11 +113,11 @@ After installing RStudio and Zotero, here are the steps for adding citations and
 
 1. **New Rmd**. In RStudio, File > New File > R Markdown... and choose type and format, eg document, HTML document. This will generate a sample *.Rmd file with metadata header specifying default output format (eg `output: html_document`).
 
-  ![rstudio_new-rmarkdown](https://raw.githubusercontent.com/cmap-ucsb/issues/master/rmarkdown_example/screenshots/rstudio_new-rmarkdown.png)
+  ![rstudio_new-rmarkdown](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/rstudio_new-rmarkdown.png)
 
 1. **Gather references**. In Zotero, place all references used for the paper into its own dedicated collection (eg "test").
 
-  ![zotero_test-collection](https://raw.githubusercontent.com/cmap-ucsb/issues/master/rmarkdown_example/screenshots/zotero_test-collection.png)
+  ![zotero_test-collection](https://raw.githubusercontent.com/bbest/rmarkdown-example/master/rmarkdown_example/screenshots/zotero_test-collection.png)
     
 1. **Add references**. Drag and drop references from this collection into the document editor (I like RStudio or [Sublime](http://www.sublimetext.com)). This will add a text citation, eg `@halpern_index_2012`.
   

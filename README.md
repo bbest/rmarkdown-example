@@ -141,7 +141,7 @@ _More_. For a deeper example of customization with figure/ table numbering, chec
 
 ## Zotero Tips
 
-- Be sure to also install a [**Zotero web browser extension**](https://www.zotero.org/download), so you can easily pull a reference being browsed into the already selected Zotero folder with the single click of the icon in the right hand side of the address bar. I've had success with the Chrome connector.
+- Be sure to also install a [**Zotero web browser extension**](https://www.zotero.org/download), aka Zotero "connector"", so you can easily pull a reference being browsed into the already selected Zotero folder with the single click of the icon in the right hand side of the address bar. I've had great success with the Chrome connector.
 
     ![zotero chrome save icon](./screenshots/zotero-chrome_save-icon.png)
 
@@ -152,8 +152,23 @@ _More_. For a deeper example of customization with figure/ table numbering, chec
 - For automatically downloaded PDFs, right-click on the PDF and "Rename File from Parent Metadata".
 
     ![zotero rename file](./screenshots/zotero_rename-file.png)
-  
 
+## Google Scholar Tips
+
+- The Zotero web browser extension also works great with Google Scholar. You get a folder icon from search results allowing you to tick and save many references at once. 
+
+    ![zotero folder listing](./screenshots/zotero-scholar_folder-listing.png)
+
+- I like making a Chrome shortcut so I simply type "s " in the address bar and it gives me a prompt to search Google Scholar.
+
+    ![scholar search shortcut](./screenshots/scholar_search-shortcut.png)
+
+- Finally, when using Google Scholar, be sure to go into the Settings and And add UCSB to provide journal access to full articles.
+
+    ![scholar settings](./screenshots/scholar_settings.png)
+
+    ![scholar add library](./screenshots/scholar_add-library.png)
+    
 ## Bibliography
 
 We can use this or another Zotero group library to sync references:

@@ -3,18 +3,18 @@ title: "Trying Rmarkdown"
 author: "Ben Best"
 date: "August 1, 2014"
 output:
-  md_document:
-    variant: markdown_github
+  html_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
   word_document:
     fig_caption: yes
   pdf_document:
     fig_caption: yes
     number_sections: yes
     toc: yes
-  html_document:
-    fig_caption: yes
-    number_sections: yes
-    toc: yes
+  md_document:
+    variant: markdown_github
 csl: apa.csl
 bibliography: test.bib
 ---

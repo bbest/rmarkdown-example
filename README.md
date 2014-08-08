@@ -106,7 +106,7 @@ Here are the key pieces of software:
     1. Export: "Default Output Format" to `Pandoc citation`
     
     1. Better Bib(La)tex: "Citation key format" to `[auth:lower]_[veryshorttitle:lower]_[year]`
-
+    
 ## Process
 
 After installing RStudio and Zotero, here are the steps for adding citations and generating a bibliography. You can use citation styles from any journal (*.csl files available for preview and download at [zotero.org/styles](https://zotero.org/styles)).
@@ -138,6 +138,21 @@ _Aside_. It is possible to sync your entire Zotero library using [AutoZotBib](ht
 _Note_. Besides the \*.Rmd and \*.md files, the outputs are binary in format and therefore just bloat the repository without adding novel information. Simply add entries like `*.pdf` and `*.docx` and `*.html` to [.gitignore](./.gitignore) to prevent these files from being tracked and uploaded to the github repository.
 
 _More_. For a deeper example of customization with figure/ table numbering, check out [bbest/dissertation](http://github.com/bbest/dissertation).
+
+## Zotero Tips
+
+- Be sure to also install a [**Zotero web browser extension**](https://www.zotero.org/download), so you can easily pull a reference being browsed into the already selected Zotero folder with the single click of the icon in the right hand side of the address bar. I've had success with the Chrome connector.
+
+    ![zotero chrome save icon](./screenshots/zotero-chrome_save-icon.png)
+
+- In the Preferences... General tab, I also like to tick the box to "Automatically attach associated PDFs...".
+
+    ![zotero preferences general attach pdfs](./screenshots/zotero_preferences-general_attach-pdfs.png)
+
+- For automatically downloaded PDFs, right-click on the PDF and "Rename File from Parent Metadata".
+
+    ![zotero rename file](./screenshots/zotero_rename-file.png)
+  
 
 ## Bibliography
 

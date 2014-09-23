@@ -10,7 +10,7 @@ Here's an example of using a single Rmarkdown file [test.**Rmd**](./test.Rmd) an
 
 - [test.**docx**](./test.docx?raw=true). Microsoft Word doc for sharing with collaborators who can use Track Changes for providing feedback.
 
-- [test.**html**](./test.html?raw=true). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
+- [test.**html**](https://rawgit.com/bbest/rmarkdown-example/master/test.html). All you need is a web browser to view this. Works well with linking out to source of References via DOI and links within document. Since Github doesn't natively show HTML, you'll need to right-click on link, Save Link as... to download and open from your computer.
 
 - [test.**md**](./test.md). Great for tracking changes in Github (ie [rendered differences](https://github.com/bbest/rmarkdown-example/commit/4cfcbe626dfa0df5238872820169198fd2008401?short_path=574f1d9#diff-4)) and figuring out who changed what when (ie [blame](https://github.com/bbest/rmarkdown-example/blame/master/test.md)). Equations maintain their latex format, so not prettily rendered like other formats.
 

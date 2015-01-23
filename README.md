@@ -25,6 +25,7 @@ Check out [test.Rmd differences](https://github.com/bbest/rmarkdown-example/comm
 1. [Add table of contents & bibliography](https://github.com/bbest/rmarkdown-example/commit/572559a1443cc285bba7b44f6d2a4b96e871069e#diff-1)
 
   ```
+  ---
  output:
    html_document:
      toc: true

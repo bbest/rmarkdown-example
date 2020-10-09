@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: rocker/verse:3.6.0
+    steps:
+      - checkout
+      # - run:
+      #     name: Install package dependencies
+      #     command: R -e "devtools::install_deps(dep = TRUE)"
+      # - run:
+      #     name: Build package
+      #     command: R CMD build .
+      # - run:
+      #     name: Check package
+      #     command: R CMD check *tar.gz
+      - restore_cache:
+          keys:
+            - wip-
+
+      - run:
+          name: Build package
+          command: Rscript -e "rmarkdown::render('test.Rmd')"
+
+      - save_cache:
+          key: "wip-{{ .BuildNum }}"
+          paths:
+            - "/usr/local/lib/R/site-library"
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - build

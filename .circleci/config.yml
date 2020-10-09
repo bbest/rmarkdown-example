@@ -20,12 +20,14 @@ jobs:
 
       - run:
           name: Build package
-          command: Rscript -e "rmarkdown::render('test.Rmd')"
+          command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
 
       - save_cache:
           key: "wip-{{ .BuildNum }}"
           paths:
             - "/usr/local/lib/R/site-library"
+
+      - store_artifacts: { path: ~/project/output_dir }
 
 workflows:
   version: 2

@@ -35,15 +35,15 @@ if (!file.exists(csv_d) | refresh_data){
   dir.create('data', showWarnings=F)
   
   # get scores
-  url_scores = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/master/eez2014/scores.csv'
+  url_scores = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/v2019.1/eez/scores.csv'
   tmp_scores = tempfile(fileext='.csv')
-  download.file(url_scores, tmp_scores, method='curl')
+  download.file(url_scores, tmp_scores, method='curl', extra='-L')
   scores = read.csv(tmp_scores)
   
   # get labels
-  url_labels = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/master/eez2014/layers/rgn_labels.csv'
+  url_labels = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/v2019.1/eez/layers/rgn_labels.csv'
   tmp_labels = tempfile(fileext='.csv')
-  download.file(url_labels, tmp_labels, method='curl')
+  download.file(url_labels, tmp_labels, method='curl', extra='-L')
   labels = read.csv(tmp_labels)
   
   # explore
@@ -137,15 +137,15 @@ x = g %>%
   arrange(order_color)
   
 # plot
-PlotFlower(
-  main       = '',
-  lengths    = x$score,
-  widths     = x$weight,
-  fill.col   = colorRampPalette(brewer.pal(10, 'Spectral'), space='Lab')(nrow(x)),
-  labels     = paste(gsub('\\\\n','\\\n', x$name_flower), round(x$score), sep='\n'),
-  center     = round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score)),
-  disk       = 0.4, 
-  max.length = 100, cex=2, label.cex=0.5, label.offset=0.13)
+# PlotFlower(
+#   main       = '',
+#   lengths    = x$score,
+#   widths     = x$weight,
+#   fill.col   = colorRampPalette(brewer.pal(10, 'Spectral'), space='Lab')(nrow(x)),
+#   labels     = paste(gsub('\\\\n','\\\n', x$name_flower), round(x$score), sep='\n'),
+#   center     = round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score)),
+#   disk       = 0.4, 
+#   max.length = 100, cex=2, label.cex=0.5, label.offset=0.13)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

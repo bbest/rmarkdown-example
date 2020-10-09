@@ -16,14 +16,14 @@ jobs:
       #     command: R CMD check *tar.gz
       - restore_cache:
           keys:
-            - "renv-{{ checksum 'renv.lock' }}"
+            - 'renv-{{ checksum "renv.lock" }}'
 
       - run:
           name: Build package
           command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
 
       - save_cache:
-          key: "renv-{{ checksum 'renv.lock' }}"
+          key: 'renv-{{ checksum "renv.lock" }}'
           paths:
             - "/home/circleci/project/renv/library"
 

@@ -20,6 +20,10 @@ jobs:
 
       - run:
           name: Build package
+          command: Rscript -e "renv::hydrate()"
+
+      - run:
+          name: Build package
           command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
 
       - save_cache:

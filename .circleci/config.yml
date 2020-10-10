@@ -4,27 +4,28 @@ jobs:
     docker:
       - image: rocker/verse:3.6.0
     environment:
-      # RENV_CONFIG_REPOS_OVERRIDE: "http://cran.r-project.org"
       RENV_PATHS_CACHE: /home/renv/cache
       RENV_PATHS_LIBRARY: /home/renv/library
     steps:
       - checkout
       - restore_cache:
           keys:
-            - 'renv2-{{ checksum "renv.lock" }}'
+            - 'renv-{{ checksum "renv.lock" }}'
+            - 'renv'
 
       - run:
           name: Install dependencies
-          command: Rscript -e "renv::hydrate()"
+          command: Rscript -e "renv::hydrate(); renv::clean()"
 
       - run:
           name: Build package
           command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
 
+      - store_artifacts: { path: ~/project/output_dir }
+
       - save_cache:
-          key: 'renv2-{{ checksum "renv.lock" }}'
+          key: 'renv-{{ checksum "renv.lock" }}'
           paths:
-            - /home/circleci/project/renv/library
             - /home/renv
 
       - run:
@@ -34,8 +35,6 @@ jobs:
             if ! git diff --exit code ; then
                 echo "Please run renv::snapshot() to update the renv.lock file"
             fi
-
-      - store_artifacts: { path: ~/project/output_dir }
 
 workflows:
   version: 2

@@ -27,6 +27,14 @@ jobs:
           paths:
             - "/home/circleci/project/renv/library"
 
+      - run:
+          name: Check dependencies are correctly recorded in renv.lock
+          command: |
+            Rscript -e "renv::snapshot()"
+            if [ ! git diff --exit code ]; then
+                echo "Please run renv::snapshot() to update the renv.lock file"
+            fi
+
       - store_artifacts: { path: ~/project/output_dir }
 
 workflows:

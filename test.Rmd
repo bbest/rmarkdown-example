@@ -15,6 +15,7 @@ bibliography: test.bib
 
 ```{r setup, echo=FALSE, include=TRUE}
 suppressPackageStartupMessages({
+  require(shiny)
   require(dplyr)
   require(knitr)
   require(RColorBrewer)
@@ -27,37 +28,37 @@ refresh_data = F
 csv_d = 'data/scores.csv'
 if (!file.exists(csv_d) | refresh_data){
   dir.create('data', showWarnings=F)
-  
+
   # get scores
   url_scores = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/v2019.1/eez/scores.csv'
   tmp_scores = tempfile(fileext='.csv')
   download.file(url_scores, tmp_scores, method='curl', extra='-L')
   scores = read.csv(tmp_scores)
-  
+
   # get labels
   url_labels = 'https://raw.githubusercontent.com/OHI-Science/ohi-global/v2019.1/eez/layers/rgn_labels.csv'
   tmp_labels = tempfile(fileext='.csv')
   download.file(url_labels, tmp_labels, method='curl', extra='-L')
   labels = read.csv(tmp_labels)
-  
+
   # explore
   # head(scores)
   # head(labels)
   # select(scores, goal, dimension) %>% table()
-  
+
   # merge
   d = scores %>%
     inner_join(
       labels %>%
         select(
-          region_id    = rgn_id, 
+          region_id    = rgn_id,
           region_label = label) %>%
         rbind(data.frame(
-          region_id    = 0, 
+          region_id    = 0,
           region_label = 'GLOBAL')),
       by='region_id') %>%
     filter(dimension=='score')
-  
+
   # write and cleanup
   write.csv(d, csv_d, row.names=F, na='')
   unlink(c(tmp_scores, tmp_labels))
@@ -114,11 +115,11 @@ kable(
     head(10) %>%
     select(
       Region = region_label,
-      Score  = score), 
+      Score  = score),
   format='pandoc', caption='Top 10 scoring regions.')
 ```
 
-The global average of `r round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score))` consists of food provision scores being lowest (Mariculture = `r round(d %>% filter(region_label=='GLOBAL' & goal=='MAR') %>% select(score))`; Fisheries = `r round(d %>% filter(region_label=='GLOBAL' & goal=='FIS') %>% select(score))`), but Artisanal Fishing Opportunities highest (`r round(d %>% filter(region_label=='GLOBAL' & goal=='AO') %>% select(score))`) (see Figure 1). 
+The global average of `r round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score))` consists of food provision scores being lowest (Mariculture = `r round(d %>% filter(region_label=='GLOBAL' & goal=='MAR') %>% select(score))`; Fisheries = `r round(d %>% filter(region_label=='GLOBAL' & goal=='FIS') %>% select(score))`), but Artisanal Fishing Opportunities highest (`r round(d %>% filter(region_label=='GLOBAL' & goal=='AO') %>% select(score))`) (see Figure 1).
 
 ```{r flower_plot, echo=FALSE, fig.cap='Global average across Oceean Health Index goals.', fig.width=5, fig.height=5}
 # combine goals with scores
@@ -129,7 +130,7 @@ x = g %>%
       select(goal, score),
     by='goal') %>%
   arrange(order_color)
-  
+
 # plot
 # PlotFlower(
 #   main       = '',
@@ -138,7 +139,7 @@ x = g %>%
 #   fill.col   = colorRampPalette(brewer.pal(10, 'Spectral'), space='Lab')(nrow(x)),
 #   labels     = paste(gsub('\\\\n','\\\n', x$name_flower), round(x$score), sep='\n'),
 #   center     = round(d %>% filter(region_label=='GLOBAL' & goal=='Index') %>% select(score)),
-#   disk       = 0.4, 
+#   disk       = 0.4,
 #   max.length = 100, cex=2, label.cex=0.5, label.offset=0.13)
 ```
 

@@ -31,7 +31,7 @@ jobs:
           name: Check dependencies are correctly recorded in renv.lock
           command: |
             Rscript -e "renv::snapshot()"
-            if [ ! git diff --exit code ]; then
+            if ! git diff --exit code ; then
                 echo "Please run renv::snapshot() to update the renv.lock file"
             fi
 

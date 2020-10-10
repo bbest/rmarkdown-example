@@ -3,23 +3,18 @@ jobs:
   build:
     docker:
       - image: rocker/verse:3.6.0
+    environment:
+      # RENV_CONFIG_REPOS_OVERRIDE: "http://cran.r-project.org"
+      RENV_PATHS_CACHE: /home/renv/cache
+      RENV_PATHS_LIBRARY: /home/renv/library
     steps:
       - checkout
-      # - run:
-      #     name: Install package dependencies
-      #     command: R -e "devtools::install_deps(dep = TRUE)"
-      # - run:
-      #     name: Build package
-      #     command: R CMD build .
-      # - run:
-      #     name: Check package
-      #     command: R CMD check *tar.gz
       - restore_cache:
           keys:
-            - 'renv-{{ checksum "renv.lock" }}'
+            - 'renv2-{{ checksum "renv.lock" }}'
 
       - run:
-          name: Build package
+          name: Install dependencies
           command: Rscript -e "renv::hydrate()"
 
       - run:
@@ -27,9 +22,10 @@ jobs:
           command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
 
       - save_cache:
-          key: 'renv-{{ checksum "renv.lock" }}'
+          key: 'renv2-{{ checksum "renv.lock" }}'
           paths:
-            - "/home/circleci/project/renv/library"
+            - /home/circleci/project/renv/library
+            - /home/renv
 
       - run:
           name: Check dependencies are correctly recorded in renv.lock

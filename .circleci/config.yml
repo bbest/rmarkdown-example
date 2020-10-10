@@ -15,11 +15,13 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: Rscript -e "renv::hydrate()"
+          shell: Rscript
+          command: renv::hydrate()
 
       - run:
           name: Build package
-          command: Rscript -e "rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')"
+          shell: Rscript
+          command: rmarkdown::render(input = 'test.Rmd', output_dir = 'output_dir')
 
       - save_cache:
           key: 'renv2-{{ checksum "renv.lock" }}'
